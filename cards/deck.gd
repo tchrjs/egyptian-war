@@ -1,4 +1,4 @@
-class_name Deck extends Node
+class_name Deck extends Node2D
 
 var cards: Array = []
 
@@ -21,7 +21,7 @@ func update_order():
 # Draw from the top of the pile.
 func draw_card() -> CardTemplate:
 	# Check to see if there are cards.
-	if (!cards.is_empty()):
+	if (cards.is_empty()):
 		return null
 
 	# Remove card from array and from node.

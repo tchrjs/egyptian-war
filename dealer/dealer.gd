@@ -17,10 +17,20 @@ func _init():
 	
 # Setups new deck with standard cards.
 func setup_standard_deck():
-	deck.cards = []
+	deck.clear()
 	for suit in suits:
 		for i in range(1, 14):
 			var instance = card_template.instantiate()
 			instance.card_data = CardData.new(suit, i)
 			deck.add_card(instance)
 	deck.update_order()
+
+# Distribute all cards from deck to players.
+func distribute_cards(players: Array):
+	if players.size() <= 0:
+		return
+	var player_count = players.size()
+	for n in deck.cards.size():
+		var drawn_card = deck.draw_card()
+		if drawn_card != null:
+			players[n % player_count].deck.add_card(drawn_card)
