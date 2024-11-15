@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmcq57cstcyij"]
+[gd_scene load_steps=5 format=3 uid="uid://bygbx4b0se261"]
 
 [ext_resource type="Script" path="res://cards/card_template.gd" id="1_thros"]
 [ext_resource type="Texture2D" uid="uid://iceo4sb5gmst" path="res://cards/art/back1.png" id="2_p5rtj"]
@@ -19,5 +19,3 @@ texture = ExtResource("2_wo2pi")
 [node name="CardBack" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_p5rtj")
-
-[connection signal="input_event" from="." to="." method="draw_card"]

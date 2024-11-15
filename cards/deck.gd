@@ -1,19 +1,6 @@
-class_name Deck extends Node2D
+class_name Deck extends Node
 
 var cards: Array = []
-
-# Initializes deck with standard cards.
-func _init_standard_deck():
-	var suits = ["clubs", "diamond", "hearts", "spades"]
-	var card_template = load("res://cards/card_template.tscn")
-
-	# Initializes cards by suit.
-	for suit in suits:
-		for i in range(1, 14):
-			var instance = card_template.instantiate()
-			instance.card_data = CardData.new(suit, i)
-			add_card(instance)
-	update_order()
 
 # Add cards onto deck.
 func add_card(card):
@@ -41,6 +28,13 @@ func draw_card() -> CardTemplate:
 	var card = cards.pop_back()
 	remove_child(card)
 	return card
+
+# Removes all cards from deck.
+func clear():
+	for n in get_children():
+		remove_child(n)
+		n.queue_free()
+	cards = []
 
 # Check if there are cards in the deck.
 func is_empty():
