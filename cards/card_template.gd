@@ -8,5 +8,6 @@ var card_data: CardData
 @onready var card_back = get_node("CardBack")
 
 func _ready():
-    card_front.texture = load("res://cards/art/" + card_data.name + ".png")
-    card_back.texture = load("res://cards/art/back1.png")
+	name = card_data.name.to_pascal_case()
+	card_front.texture = load("res://cards/art/" + card_data.name + ".png")
+	card_back.texture = load("res://cards/art/back1.png")

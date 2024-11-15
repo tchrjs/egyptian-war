@@ -1,11 +1,12 @@
 class_name Main extends Node
 
-var deck: Deck
+var dealer: Deck
 
 func _init():
-	deck = Deck.new()
-	deck._init_standard_deck()
+	dealer = Deck.new()
+	dealer._init_standard_deck()
+	dealer.set_name("Dealer")
 
 func _ready():
-	deck.shuffle_cards()
-	add_child(deck.cards[0])
+	dealer.shuffle_cards()
+	add_child(dealer)

@@ -6,3 +6,5 @@
 script = ExtResource("1_7jbld")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
