@@ -1,11 +1,11 @@
-extends Node
+class_name Main extends Node
 
+var deck: Deck
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _init():
+	deck = Deck.new()
+	deck._init_standard_deck()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready():
+	deck.shuffle_cards()
+	add_child(deck.cards[0])
