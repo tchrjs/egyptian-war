@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/stretch/scale=2.5
 
 [dotnet]

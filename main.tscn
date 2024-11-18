@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://brkv8d1aenvlt"]
+[gd_scene load_steps=3 format=3 uid="uid://brkv8d1aenvlt"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7jbld"]
-[ext_resource type="PackedScene" uid="uid://dcx6nvfmchlpi" path="res://dealer/dealer.tscn" id="2_v887b"]
-[ext_resource type="PackedScene" uid="uid://bultvktnmo228" path="res://player/player_factory.tscn" id="3_oe8o5"]
+[ext_resource type="PackedScene" uid="uid://dhgg38kdx82tt" path="res://scenes/game/game.tscn" id="2_xer68"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7jbld")
 
-[node name="Dealer" parent="." instance=ExtResource("2_v887b")]
-
-[node name="PlayerFactory" parent="." instance=ExtResource("3_oe8o5")]
+[node name="Game" parent="." instance=ExtResource("2_xer68")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
