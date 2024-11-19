@@ -1,4 +1,4 @@
-class_name Dealer extends Node
+class_name Dealer extends Node2D
 
 # Deck located at the center of the game.
 var deck: Deck

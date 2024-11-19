@@ -27,6 +27,7 @@ func draw_card() -> CardTemplate:
 	# Remove card from array and from node.
 	var card = cards.pop_back()
 	remove_child(card)
+	update_order()
 	return card
 
 # Removes all cards from deck.

@@ -1,6 +1,4 @@
-class_name State extends Node
-
-signal transitioned(state: State, new_state_name: String) 
+class_name CheckState extends State
 
 func enter():
     pass
@@ -9,7 +7,7 @@ func exit():
     pass
 
 func update(_delta: float):
-    pass
+    return
 
 func physics_update(_delta: float):
-    pass
+    return

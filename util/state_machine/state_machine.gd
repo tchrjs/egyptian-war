@@ -12,18 +12,17 @@ func _ready():
 			child.transitioned.connect(on_child_transition)
 	
 	if initial_state:
-		current_state = initial_state
-		current_state.enter()
+		_enter_state(initial_state)
 
 
 func _process(delta):
 	if current_state:
-		current_state.process_state(delta)
+		current_state.update(delta)
 
 
 func _physics_process(delta):
 	if current_state:
-		current_state.physics_process_state(delta)
+		current_state.physics_update(delta)
 
 
 func on_child_transition(state: State, new_state_name: String):
@@ -41,4 +40,5 @@ func _enter_state(state: State):
 		current_state.exit()
 	
 	current_state = state
+	print("Current State: " + current_state.name)
 	state.enter()
