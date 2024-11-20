@@ -36,5 +36,6 @@ func distribute_cards(players: Array):
 			players[n % player_count].deck.add_card(drawn_card)
 
 func take_drawn_card(card: CardTemplate):
+	card.move_and_tilt()
 	card.flip_card()
 	deck.add_card(card)

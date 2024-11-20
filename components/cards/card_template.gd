@@ -18,8 +18,19 @@ func flip_card():
 	else:
 		hide_card()
 
+func move_and_tilt():
+	rotation = random_float_in_range(0, 360)
+	position = Vector2(random_float_in_range(-5, 5), random_float_in_range(-5, 5))
+	pass
+
+func realign():
+	pass
+
 func show_card():
 	card_back.visible = false
 
 func hide_card():
 	card_back.visible = true
+
+func random_float_in_range(_min: float, _max: float) -> float:
+	return randf() * (_max - _min) + _min
