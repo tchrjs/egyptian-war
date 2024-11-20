@@ -11,3 +11,15 @@ func _ready():
 	name = card_data.name.to_pascal_case()
 	card_front.texture = load("res://assets/art/cards/" + card_data.name + ".png")
 	card_back.texture = load("res://assets/art/cards/back1.png")
+
+func flip_card():
+	if card_back.visible:
+		show_card()
+	else:
+		hide_card()
+
+func show_card():
+	card_back.visible = false
+
+func hide_card():
+	card_back.visible = true

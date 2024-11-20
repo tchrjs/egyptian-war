@@ -6,6 +6,7 @@ var cards: Array = []
 func add_card(card):
 	cards.append(card)
 	add_child(card)
+	update_order()
 
 # Shuffles deck.
 func shuffle_cards():

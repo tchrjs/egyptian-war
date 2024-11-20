@@ -34,3 +34,7 @@ func distribute_cards(players: Array):
 		var drawn_card = deck.draw_card()
 		if drawn_card != null:
 			players[n % player_count].deck.add_card(drawn_card)
+
+func take_drawn_card(card: CardTemplate):
+	card.flip_card()
+	deck.add_card(card)
