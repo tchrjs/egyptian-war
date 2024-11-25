@@ -14,4 +14,4 @@ click_area = NodePath("ClickArea")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("RectangleShape2D_dpuvv")
 
-[connection signal="input_event" from="ClickArea" to="." method="_on_deck_area_input_event"]
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

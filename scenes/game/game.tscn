@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhgg38kdx82tt"]
+[gd_scene load_steps=8 format=3 uid="uid://dhgg38kdx82tt"]
 
 [ext_resource type="Script" path="res://util/state_machine/state_machine.gd" id="1_3e6xi"]
 [ext_resource type="PackedScene" uid="uid://dcx6nvfmchlpi" path="res://components/dealer/dealer.tscn" id="1_dph4q"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_e7ady"]
 [ext_resource type="Script" path="res://scenes/game/states/deal_state.gd" id="2_jlys2"]
-[ext_resource type="PackedScene" uid="uid://bultvktnmo228" path="res://components/player/player_factory.tscn" id="2_wj6nr"]
 [ext_resource type="Script" path="res://scenes/game/states/draw_state.gd" id="4_mcjrq"]
 [ext_resource type="Script" path="res://scenes/game/states/check_state.gd" id="5_6fpe4"]
 [ext_resource type="Script" path="res://scenes/game/states/end_state.gd" id="6_3qdah"]
@@ -16,10 +15,8 @@ script = ExtResource("1_e7ady")
 script = ExtResource("1_3e6xi")
 initial_state = NodePath("DealState")
 
-[node name="DealState" type="Node" parent="StateMachine" node_paths=PackedStringArray("dealer", "player_factory")]
+[node name="DealState" type="Node" parent="StateMachine"]
 script = ExtResource("2_jlys2")
-dealer = NodePath("../../Dealer")
-player_factory = NodePath("../../PlayerFactory")
 
 [node name="DrawState" type="Node" parent="StateMachine"]
 script = ExtResource("4_mcjrq")
@@ -29,7 +26,5 @@ script = ExtResource("5_6fpe4")
 
 [node name="EndState" type="Node" parent="StateMachine"]
 script = ExtResource("6_3qdah")
-
-[node name="PlayerFactory" parent="." instance=ExtResource("2_wj6nr")]
 
 [node name="Dealer" parent="." instance=ExtResource("1_dph4q")]

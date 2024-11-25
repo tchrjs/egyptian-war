@@ -1,11 +1,11 @@
 class_name DealState extends State
 
-@export var dealer: Dealer
-@export var player_factory: PlayerFactory
+@onready var dealer: Dealer = get_node("/root/Main/Game/Dealer")
+@onready var game: Game = get_node("/root/Main/Game")
 
 func enter():
-    player_factory.setup_players(2)
-    dealer.distribute_cards(player_factory.players)
+    game.setup_players(2)
+    dealer.distribute_cards(game.players)
     transitioned.emit(self, "drawstate")
 
 func exit():

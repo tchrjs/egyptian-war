@@ -7,6 +7,8 @@ var deck: Deck
 var suits = ["clubs", "diamond", "hearts", "spades"]
 var card_template = load("res://components/cards/card_template.tscn")
 
+var is_checking = false
+
 # Intial declaration of dealer's deck.
 func _init():
 	deck = Deck.new()
@@ -39,3 +41,12 @@ func take_drawn_card(card: CardTemplate):
 	card.move_and_tilt()
 	card.flip_card()
 	deck.add_card(card)
+
+# Handles what happens when the deck is clicked.
+func deck_clicked():
+	is_checking = true
+
+func _on_click_area_input_event(_viewport:Node, event:InputEvent, _shape_idx:int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			deck_clicked()

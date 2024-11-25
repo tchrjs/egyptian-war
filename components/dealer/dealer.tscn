@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcx6nvfmchlpi"]
+[gd_scene load_steps=3 format=3 uid="uid://dcx6nvfmchlpi"]
 
 [ext_resource type="Script" path="res://components/dealer/dealer.gd" id="1_h2gby"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acf81"]
+size = Vector2(37, 52)
+
 [node name="Dealer" type="Node2D"]
 script = ExtResource("1_h2gby")
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("RectangleShape2D_acf81")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

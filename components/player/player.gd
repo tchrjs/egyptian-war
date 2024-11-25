@@ -25,7 +25,7 @@ func deck_clicked():
 		dealer.take_drawn_card(drawn_card)
 
 # Handles deck mouse click events.
-func _on_deck_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
+func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			deck_clicked()
