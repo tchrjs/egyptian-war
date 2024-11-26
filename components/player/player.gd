@@ -16,11 +16,15 @@ func set_placement(x: int, y: int):
 	position.x = x
 	position.y = y
 
+# Enables and disables player input.
+func toggle(_toggle: bool):
+	click_area.input_pickable = _toggle
+
 # Handles what happens when the deck is clicked.
 func deck_clicked():
 	var drawn_card = deck.draw_card()
 	if drawn_card == null:
-		click_area.input_pickable = false
+		toggle(false)
 	else: 
 		dealer.take_drawn_card(drawn_card)
 

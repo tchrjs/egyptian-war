@@ -1,17 +1,16 @@
-class_name DrawState extends State
-
-@onready var dealer: Dealer = get_node("/root/Main/Game/Dealer")
+class_name DrawState extends GameState
 
 func enter():
-	pass
+	dealer.toggle(true)
+	game.toggle_players(true)
 
 func exit():
-	pass
+	dealer.toggle(false)
+	game.toggle_players(false)
 
 func update(_delta: float):
 	if dealer.is_checking:
 		transitioned.emit(self, "checkstate")
-	return
 
 func physics_update(_delta: float):
 	return

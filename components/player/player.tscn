@@ -10,6 +10,7 @@ script = ExtResource("1_ilk6r")
 click_area = NodePath("ClickArea")
 
 [node name="ClickArea" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("RectangleShape2D_dpuvv")

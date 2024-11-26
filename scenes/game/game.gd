@@ -9,6 +9,7 @@ var player_count = 2
 var x: Array = [0, 0]
 var y: Array = [-90, 90]
 
+# Instantiate players.
 func setup_players():
     for n in player_count:
         var instance = player_scene.instantiate()
@@ -16,3 +17,8 @@ func setup_players():
         instance.set_placement(x[n], y[n])
         players.append(instance)
         add_child.call_deferred(instance)
+
+# Enable or disable all player click events.
+func toggle_players(_toggle: bool):
+    for player in players:
+        player.toggle(_toggle)

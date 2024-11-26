@@ -1,7 +1,4 @@
-class_name DealState extends State
-
-@onready var dealer: Dealer = get_node("/root/Main/Game/Dealer")
-@onready var game: Game = get_node("/root/Main/Game")
+class_name DealState extends GameState
 
 func enter():
     game.setup_players()

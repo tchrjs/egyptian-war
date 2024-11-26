@@ -5,10 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf81"]
 size = Vector2(37, 52)
 
-[node name="Dealer" type="Node2D"]
+[node name="Dealer" type="Node2D" node_paths=PackedStringArray("click_area")]
 script = ExtResource("1_h2gby")
+click_area = NodePath("ClickArea")
 
 [node name="ClickArea" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("RectangleShape2D_acf81")

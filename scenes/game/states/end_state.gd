@@ -1,4 +1,4 @@
-class_name EndState extends State
+class_name EndState extends GameState
 
 func enter():
     pass
