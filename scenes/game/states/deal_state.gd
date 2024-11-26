@@ -4,7 +4,7 @@ class_name DealState extends State
 @onready var game: Game = get_node("/root/Main/Game")
 
 func enter():
-    game.setup_players(2)
+    game.setup_players()
     dealer.distribute_cards(game.players)
     transitioned.emit(self, "drawstate")
 
