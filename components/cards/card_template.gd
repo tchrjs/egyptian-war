@@ -34,3 +34,6 @@ func hide_card():
 
 func random_float_in_range(_min: float, _max: float) -> float:
 	return randf() * (_max - _min) + _min
+
+func get_rank() -> int:
+	return card_data.rank

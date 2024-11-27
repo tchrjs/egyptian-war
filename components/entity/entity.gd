@@ -13,11 +13,14 @@ func set_placement(x: int, y: int):
 func toggle(_toggle: bool):
 	click_area.input_pickable = _toggle
 
-func deck_clicked():
-	pass
-
 # Handles deck input events.
 func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
+	if deck.is_empty():
+		return
+		
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			deck_clicked()
+
+func deck_clicked():
+	pass
