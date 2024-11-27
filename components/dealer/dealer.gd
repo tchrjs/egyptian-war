@@ -1,5 +1,8 @@
 class_name Dealer extends Node2D
 
+# Signal list.
+signal deck_slapped()
+
 # Deck located at the center of the game.
 var deck: Deck
 @export var click_area: Area2D
@@ -7,8 +10,6 @@ var deck: Deck
 # Card information for setup.
 var suits = ["clubs", "diamond", "hearts", "spades"]
 var card_template = load("res://components/cards/card_template.tscn")
-
-var is_checking = false
 
 # Intial declaration of dealer's deck.
 func _init():
@@ -38,8 +39,8 @@ func distribute_cards(players: Array):
 		if drawn_card != null:
 			players[n % player_count].deck.add_card(drawn_card)
 
-# Takes player card and piles face front onto dealer's deck.
-func take_drawn_card(card: CardTemplate):
+# Add player's card face front onto the dealer's deck.
+func add_card_to_pile(card: CardTemplate):
 	card.move_and_tilt()
 	card.flip_card()
 	deck.add_card(card)
@@ -50,7 +51,7 @@ func toggle(_toggle: bool):
 
 # Handles what happens when the deck is clicked.
 func deck_clicked():
-	is_checking = true
+	deck_slapped.emit()
 
 # Handles deck mouse click events.
 func _on_click_area_input_event(_viewport:Node, event:InputEvent, _shape_idx:int) -> void:

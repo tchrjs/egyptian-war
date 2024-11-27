@@ -1,9 +1,11 @@
 class_name Player extends Node2D
 
+# Signal list.
+signal card_drawn(card: CardTemplate)
+
 # Deck located at the center of the game.
 var deck: Deck
 @export var click_area: Area2D
-@onready var dealer: Dealer = get_node("/root/Main/Game/Dealer")
 
 # Intial declaration of dealer's deck.
 func _init():
@@ -22,13 +24,13 @@ func toggle(_toggle: bool):
 
 # Handles what happens when the deck is clicked.
 func deck_clicked():
-	var drawn_card = deck.draw_card()
-	if drawn_card == null:
+	var card = deck.draw_card()
+	if card == null:
 		toggle(false)
 	else: 
-		dealer.take_drawn_card(drawn_card)
+		card_drawn.emit(card)
 
-# Handles deck mouse click events.
+# Handles deck input events.
 func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:

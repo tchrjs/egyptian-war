@@ -9,7 +9,7 @@ func exit():
 	game.toggle_players(false)
 
 func update(_delta: float):
-	if dealer.is_checking:
+	if game.is_checking:
 		transitioned.emit(self, "checkstate")
 
 func physics_update(_delta: float):

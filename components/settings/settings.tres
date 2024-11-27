@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://dvihdnexusj4v"]
+
+[ext_resource type="Script" path="res://components/settings/settings.gd" id="1_l0eaa"]
+
+[resource]
+script = ExtResource("1_l0eaa")
+doubles = true
+sandwhiches = false
+ultimate_sandwhiches = false
+tens = false

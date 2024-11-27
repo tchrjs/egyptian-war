@@ -3,13 +3,13 @@ class_name State extends Node
 signal transitioned(state: State, new_state_name: String) 
 
 func enter():
-    pass
+	pass
 
 func exit():
-    pass
+	pass
 
 func update(_delta: float):
-    pass
+	pass
 
 func physics_update(_delta: float):
-    pass
+	pass
