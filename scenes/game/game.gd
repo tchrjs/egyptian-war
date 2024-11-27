@@ -6,7 +6,7 @@ class_name Game extends Node
 var players: Array = []
 
 # For player setup.
-var player_scene = load("res://components/player/player.tscn")
+var player_scene = load("res://components/entity/player/player.tscn")
 var player_count = 2
 var x: Array = [0, 0]
 var y: Array = [-90, 90]
@@ -39,5 +39,5 @@ func _on_player_card_drawn(card: CardTemplate):
 	dealer.add_card_to_pile(card)
 	
 # Handles what happens when a player slaps the dealer's deck.
-func _on_dealer_deck_slapped() -> void:
+func _on_dealer_deck_slapped():
 	is_checking = true

@@ -1,13 +1,13 @@
 class_name EndState extends GameState
 
 func enter():
-    pass
+	pass
 
 func exit():
-    pass
+	pass
 
 func update(_delta: float):
-    return
+	return
 
 func physics_update(_delta: float):
-    return
+	return
