@@ -10,6 +10,3 @@ func exit():
 
 func update(_delta: float):
 	return
-
-func physics_update(_delta: float):
-	return
