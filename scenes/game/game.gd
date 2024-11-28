@@ -8,13 +8,15 @@ var players: Array = []
 var player_scene = load("res://components/entity/player/player.tscn")
 var player_count = 2
 var x: Array = [0, 0]
-var y: Array = [-90, 90]
+var y: Array = [90, -90]
 
 # Game check values and helps with state machine.
 var is_checking: bool = false
+var player_turn: int = 0
 
 # Instantiate players.
 func setup_players():
+	player_turn = 0;
 	for n in player_count:
 		# Create instance of player.
 		var instance = player_scene.instantiate()
@@ -29,14 +31,29 @@ func setup_players():
 		add_child.call_deferred(instance)
 
 # Enable or disable all player click events.
-func toggle_players(_toggle: bool):
+func toggle_all_players(_toggle: bool):
 	for player in players:
 		player.toggle(_toggle)
+
+# Enables or disables current player.
+func toggle_current_player(_toggle: bool):
+	players[player_turn].toggle(_toggle)
 
 # Takes card from player and gives it to dealer. 
 func _on_player_card_drawn(card: CardTemplate):
 	dealer.add_card_to_pile(card)
+	toggle_current_player(false)
+	set_next_player()
+	toggle_current_player(true)
 	
 # Handles what happens when a player slaps the dealer's deck.
 func _on_dealer_deck_slapped():
 	is_checking = true
+
+# Sets next player turn.
+func set_next_player():
+	player_turn = (player_turn + 1) % player_count
+
+# Sets specific turn to player.
+func set_player_turn(turn: int):
+	player_turn = turn

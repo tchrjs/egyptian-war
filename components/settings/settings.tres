@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_l0eaa")
 doubles = true
-sandwhiches = false
+sandwhiches = true
 ultimate_sandwhiches = false
 tens = false
