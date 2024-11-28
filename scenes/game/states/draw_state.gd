@@ -10,7 +10,7 @@ func exit():
 
 func update(_delta: float):
 	if game.is_checking:
-		transitioned.emit(self, "checkstate")
+		transitioned.emit(self, "slapstate")
 
 func physics_update(_delta: float):
 	return

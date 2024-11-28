@@ -1,7 +1,6 @@
 class_name Game extends Node
 
 # Existing nodes with game scene, order by tree alignment.
-@export var settings: Settings
 @export var dealer: Dealer
 var players: Array = []
 
@@ -41,51 +40,3 @@ func _on_player_card_drawn(card: CardTemplate):
 # Handles what happens when a player slaps the dealer's deck.
 func _on_dealer_deck_slapped():
 	is_checking = true
-	var has_won = is_win()
-	print(has_won)
-	
-# Loop through all rules and check if one of them results in a win.
-func is_win():
-	var check_methods = ["is_double", "is_sandwhich", "is_ultimate_sandwhich", "is_tens"]
-	for method in check_methods:
-		if call(method):
-			return true
-	return false
-	
-# Check if the front 2 cards' rank matches.
-func is_double() -> bool:
-	if !settings.doubles:
-		return false
-		
-	var dealer_cards = dealer.deck.cards;
-	var deck_size = dealer_cards.size();
-	
-	if deck_size >= 2:
-		if dealer_cards[deck_size - 1].get_rank() == dealer_cards[deck_size - 2].get_rank():
-			return true
-	return false
-	
-# Check if there is 2 cards of the same rank with another card inbetween.
-func is_sandwhich() -> bool:
-	if !settings.sandwhiches:
-		return false
-
-	var dealer_cards = dealer.deck.cards;
-	var deck_size = dealer_cards.size();
-
-	if deck_size >= 3:
-		if dealer_cards[deck_size - 1].get_rank() == dealer_cards[deck_size - 3].get_rank():
-			return true
-	return false
-	
-# Check if front and back cards' rank matches.
-func is_ultimate_sandwhich() -> bool:
-	if !settings.ultimate_sandwhiches:
-		return false
-	return false
-	
-# Check if the first 2 numbers cards adds up to 10.
-func is_tens() -> bool:
-	if !settings.tens:
-		return false
-	return false
