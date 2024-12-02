@@ -15,5 +15,6 @@ func deck_clicked():
 		card_drawn.emit(card)
 
 # Updates deck label.
-func _on_deck_updated(card_count: int):
-	deck_size_label.text = str(card_count)
+func _on_hand_child_order_changed():
+	if deck_size_label != null:
+		deck_size_label.text = str(deck.cards.size())

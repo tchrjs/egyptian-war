@@ -34,5 +34,5 @@ text = "0"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="deck_updated" from="Hand" to="." method="_on_deck_updated"]
+[connection signal="child_order_changed" from="Hand" to="." method="_on_hand_child_order_changed"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

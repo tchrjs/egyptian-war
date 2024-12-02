@@ -1,7 +1,5 @@
 class_name Deck extends Node2D
 
-signal deck_updated(card_count: int)
-
 var cards: Array = []
 
 # Add cards onto deck.
@@ -19,7 +17,6 @@ func shuffle_cards():
 func update_order():
 	for i in range(cards.size()):
 		cards[i].z_index = i
-	deck_updated.emit(cards.size())
 
 # Draw from the top of the pile.
 func draw_card() -> CardTemplate:
