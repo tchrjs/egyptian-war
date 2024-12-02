@@ -13,6 +13,7 @@ var y: Array = [90, -90]
 # Game check values and helps with state machine.
 var is_checking: bool = false
 var player_turn: int = 0
+var challenge_value: int = 0
 
 # Instantiate players.
 func setup_players():
@@ -43,8 +44,21 @@ func toggle_current_player(_toggle: bool):
 func _on_player_card_drawn(card: CardTemplate):
 	dealer.add_card_to_pile(card)
 	toggle_current_player(false)
-	set_next_player()
-	toggle_current_player(true)
+	
+	# Determine card challenges.
+	if card.is_face_card:
+		challenge_value = card.get_challenge_value()
+		set_next_player()
+		toggle_current_player(true)
+	elif challenge_value == 0:
+		set_next_player()
+		toggle_current_player(true)
+	else:
+		challenge_value -= 1
+		if challenge_value > 0:
+			toggle_current_player(true)
+		else:
+			print("lost challenge")
 	
 # Handles what happens when a player slaps the dealer's deck.
 func _on_dealer_deck_slapped():
