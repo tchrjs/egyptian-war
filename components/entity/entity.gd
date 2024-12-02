@@ -1,7 +1,7 @@
 class_name Entity extends Node2D
 
 # Deck located at the center of the game.
-var deck: Deck
+@export var deck: Deck
 @export var click_area: Area2D
 
 # Sets placement of deck.

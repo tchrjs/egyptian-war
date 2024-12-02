@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcx6nvfmchlpi"]
+[gd_scene load_steps=4 format=3 uid="uid://dcx6nvfmchlpi"]
 
 [ext_resource type="Script" path="res://components/entity/dealer/dealer.gd" id="1_h2gby"]
+[ext_resource type="Script" path="res://components/cards/deck.gd" id="2_e65am"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acf81"]
 size = Vector2(37, 52)
 
-[node name="Dealer" type="Node2D" node_paths=PackedStringArray("click_area")]
+[node name="Dealer" type="Node2D" node_paths=PackedStringArray("deck", "click_area")]
 script = ExtResource("1_h2gby")
+deck = NodePath("Hand")
 click_area = NodePath("ClickArea")
+
+[node name="Hand" type="Node2D" parent="."]
+script = ExtResource("2_e65am")
 
 [node name="ClickArea" type="Area2D" parent="."]
 input_pickable = false

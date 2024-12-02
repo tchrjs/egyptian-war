@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://qo5poa01ttff"]
+[gd_scene load_steps=5 format=3 uid="uid://qo5poa01ttff"]
 
 [ext_resource type="Script" path="res://components/entity/player/player.gd" id="1_ilk6r"]
+[ext_resource type="Script" path="res://components/cards/deck.gd" id="2_ky4xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpuvv"]
 size = Vector2(37, 52)
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("click_area")]
+[sub_resource type="Theme" id="Theme_0i260"]
+default_font_size = 12
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("deck_size_label", "deck", "click_area")]
 script = ExtResource("1_ilk6r")
+deck_size_label = NodePath("DeckSizeLabel")
+deck = NodePath("Hand")
 click_area = NodePath("ClickArea")
+
+[node name="Hand" type="Node2D" parent="."]
+script = ExtResource("2_ky4xb")
 
 [node name="ClickArea" type="Area2D" parent="."]
 input_pickable = false
@@ -15,4 +24,15 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("RectangleShape2D_dpuvv")
 
+[node name="DeckSizeLabel" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 26.0
+theme = SubResource("Theme_0i260")
+text = "0"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="deck_updated" from="Hand" to="." method="_on_deck_updated"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
