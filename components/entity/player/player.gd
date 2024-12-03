@@ -14,6 +14,11 @@ func deck_clicked():
 	else: 
 		card_drawn.emit(card)
 
+# Take cards from one deck.
+func take_cards(cards: Array):
+	for card in cards:
+		deck.insert_bottom(card)
+
 # Updates deck label.
 func _on_hand_child_order_changed():
 	if deck_size_label != null:

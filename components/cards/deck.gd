@@ -3,8 +3,13 @@ class_name Deck extends Node2D
 var cards: Array = []
 
 # Add cards onto deck.
-func add_card(card):
+func insert_top(card: CardTemplate):
 	cards.append(card)
+	add_child(card)
+	update_order()
+	
+func insert_bottom(card: CardTemplate):
+	cards.insert(0, card)
 	add_child(card)
 	update_order()
 
@@ -29,6 +34,15 @@ func draw_card() -> CardTemplate:
 	remove_child(card)
 	update_order()
 	return card
+
+func realign_cards():
+	for card in cards:
+		card.realign()
+
+func flip():
+	cards.reverse()
+	for card in cards:
+		card.flip_card()
 
 # Removes all cards from deck.
 func clear():

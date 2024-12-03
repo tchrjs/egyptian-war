@@ -23,10 +23,10 @@ func flip_card():
 func move_and_tilt():
 	rotation = random_float_in_range(0, 360)
 	position = Vector2(random_float_in_range(-5, 5), random_float_in_range(-5, 5))
-	pass
 
 func realign():
-	pass
+	rotation = 0
+	position = Vector2.ZERO
 
 func show_card():
 	card_back.visible = false
